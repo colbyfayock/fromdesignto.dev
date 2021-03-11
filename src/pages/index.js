@@ -12,14 +12,41 @@ import FeatureList from 'components/FeatureList';
 
 export default function Home() {
   const { metadata } = useSite();
-  const { siteName } = metadata;
+  const { siteName, homepage } = metadata;
+
+  const metaDescription = 'Learn how to go from design to development using the best tools on the web!';
+
+  const ogImage = `${homepage}/from-design-to-development-crash-course.jpg`;
 
   return (
     <Layout displayNav={false}>
 
       <Helmet>
+        <html lang="en" />
         <title>{ siteName }</title>
+        
         <link rel="icon" href="/favicon.ico" />
+
+        <meta name="description" content={metaDescription} />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <meta property="og:title" content={siteName} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={homepage} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:secure_url" content={ogImage} />
+        <meta property="og:image:width" content="2024" />
+        <meta property="og:image:height" content="1012" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:image" content={ogImage} />
+        <meta property="twitter:site" content={homepage} />
+        <meta property="twitter:creator" content="@colbyfayock" />
       </Helmet>
 
       <Section>
