@@ -1,3 +1,88 @@
+@import "settings/__settings";
+@import "../components/Button/Button.module.scss";
+
 .homeTitle {
-  color: red;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 7vw;
+  margin-top: 0;
+
+  @media (min-width: 50em) {
+    font-size: 4.2em;
+  }
+
+  strong {
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1.4em;
+    background-color: $color-brand-purple;
+    padding: 0 .2em;
+    margin: .1em;
+  }
+
+}
+
+.homeTitleSubline {
+
+  font-size: .6em;
+  margin-top: .1em;
+  
+  strong {
+    background-color: $color-brand-magenta;
+  }
+
+}
+
+.homeVideo {
+  margin-bottom: 5em;
+}
+
+.homeWatch {
+
+  text-align: center;
+  
+  a {
+    @extend .button;
+    text-decoration: none;
+  }
+  
+}
+
+.homeDetailsSection {
+  
+  text-align: center;
+
+  h2 {
+    margin-bottom: 2em;
+  }
+
+}
+
+.homeDetails {
+
+  display: block;
+  width: 100%;
+  max-width: 50em;
+  text-align: left;
+  margin: 1em auto;
+
+  summary {
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: $color-brand-purple;
+    padding: .5em .8em;
+  }
+
+  ul  {
+    padding-left: 1.2em;
+  }
+
+  li {
+    margin-bottom: .2em;
+  }
+
 }
