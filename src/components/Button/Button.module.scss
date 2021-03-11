@@ -1,14 +1,21 @@
 @import "styles/settings/__settings";
 
 .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   font-family: inherit;
   font-size: 1.3em;
   font-weight: 700;
   background-color: $color-primary;
   padding: .8em 1.4em;
-  border-radius: $border-radius-small;
   border: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, .4);
   cursor: pointer;
+
+  svg {
+    margin: 0 .5em 0 0;
+  }
+
 }

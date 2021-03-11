@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import { FaYoutube } from 'react-icons/fa';
 import styles from 'styles/App.module.scss';
 
 import useSite from 'hooks/use-site';
@@ -43,7 +44,7 @@ export default function Home() {
 
           <p className={styles.homeWatch}>
             <a href="https://www.youtube.com/colbyfayock">
-              Watch on YouTube
+              <FaYoutube className="icon-youtube icon-front" /> Watch on YouTube
             </a>
           </p>
         </Container>
