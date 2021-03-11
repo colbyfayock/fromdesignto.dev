@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { FaYoutube } from 'react-icons/fa';
-import styles from 'styles/App.module.scss';
+import { FaYoutube, FaBell } from 'react-icons/fa';
 
 import useSite from 'hooks/use-site';
 
@@ -9,6 +8,8 @@ import Section from 'components/Section';
 import Container from 'components/Container';
 import Button from 'components/Button';
 import FeatureList from 'components/FeatureList';
+
+import styles from 'styles/App.module.scss';
 
 export default function Home() {
   const { metadata } = useSite();
@@ -71,7 +72,11 @@ export default function Home() {
 
           <p className={styles.homeWatch}>
             <a href="https://www.youtube.com/colbyfayock">
-              <FaYoutube className="icon-youtube icon-front" /> Watch on YouTube
+              <FaYoutube /> Watch on YouTube
+            </a>
+
+            <a href="https://www.youtube.com/colbyfayock?sub_confirmation=1">
+              <FaBell /> Subscribe on YouTube
             </a>
           </p>
         </Container>
@@ -279,6 +284,27 @@ export default function Home() {
             🥳🥳🥳🥳🥳
           </details>
 
+        </Container>
+      </Section>
+
+      <Section className={styles.homeSubscribe}>
+        <Container>
+          <h2>
+            Susbcribe to My Newsletter
+          </h2>
+          <p>
+            Get free weekly tutorials straight to your inbox!
+          </p>
+          <form className={styles.form} action="https://app.convertkit.com/forms/2111125/subscriptions" method="post">
+            <p>
+              <input name="email_address" aria-label="Your email address" placeholder="Your email address" required type="email" />
+            </p>
+            <p>
+              <Button>
+                Get Free Tutorials
+              </Button>
+            </p>
+          </form>
         </Container>
       </Section>
 

@@ -46,8 +46,20 @@
   text-align: center;
   
   a {
+    
     @extend .button;
     text-decoration: none;
+    margin: 0 .5em;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      background-color: $color-gray-500;
+      margin-right: 0;
+    }
+
   }
   
 }
@@ -83,6 +95,35 @@
 
   li {
     margin-bottom: .2em;
+  }
+
+}
+
+.homeSubscribe {
+  
+  font-size: 1.4em;
+  text-align: center;
+
+  p {
+    
+    margin-bottom: 1.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+.form {
+
+  font-size: .8em;
+
+  input {
+    font-size: 1.2em;
+    text-align: center;
+    padding: .8em;
   }
 
 }
