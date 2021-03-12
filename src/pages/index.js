@@ -67,12 +67,12 @@ export default function Home() {
 
           <figure className={styles.homeVideo}>
             <div className="video-container">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/q9tpBtvTTz8" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/QjZIeA952jE" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>
           </figure>
 
           <p className={styles.homeWatch}>
-            <a href="https://www.youtube.com/colbyfayock">
+            <a href="https://www.youtube.com/watch?v=QjZIeA952jE">
               <FaYoutube /> Watch on YouTube
             </a>
 
