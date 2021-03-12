@@ -92,7 +92,7 @@ export default function Home() {
         '🤖 Automating code tasks with GitHub Actions',
         '⚙️ Deploying a Next.js app with Netlify',
         '🔒 Authenticating users with Netlify Identity',
-        '📝 Manging dynamic content with Airtable'
+        '📝 Managing dynamic content with Airtable'
       ]} backgroundColor="purple" />
 
 
