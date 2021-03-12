@@ -27,6 +27,15 @@ const Footer = () => {
             <h3>Moar awesome!</h3>
             <ul>
               <li>
+                <a href="https://50reactprojects.com">50reactprojects.com</a>
+              </li>
+              <li>
+                <a href="https://journeyto.dev">journeyto.dev</a>
+              </li>
+              <li>
+                <a href="https://jamstackhandbook.com">jamstackhandbook.com</a>
+              </li>
+              <li>
                 <a href="https://colbyfayock.com">colbyfayock.com</a>
               </li>
             </ul>
@@ -57,7 +66,9 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <CosmoMono className={styles.footerCosmo} classNameStroke={styles.footerCosmoStroke} />
+            <a className={styles.footerCosmo} href="https://spacejelly.dev">
+              <CosmoMono  classNameStroke={styles.footerCosmoStroke} />
+            </a>
           </div>
         </Container>
       </Section>

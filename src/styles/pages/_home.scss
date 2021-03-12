@@ -8,11 +8,11 @@
   align-items: center;
   color: white;
   text-transform: uppercase;
-  font-size: 7vw;
+  font-size: 9vw;
   margin-top: 0;
 
   @media (min-width: 50em) {
-    font-size: 4.2em;
+    font-size: 4.8em;
   }
 
   strong {
@@ -49,15 +49,10 @@
     
     @extend .button;
     text-decoration: none;
-    margin: 0 .5em;
-
-    &:first-child {
-      margin-left: 0;
-    }
+    margin: .5em;
 
     &:last-child {
       background-color: $color-gray-500;
-      margin-right: 0;
     }
 
   }
@@ -83,14 +78,34 @@
   margin: 1em auto;
 
   summary {
-    font-size: 1.2em;
-    font-weight: bold;
-    background-color: $color-brand-purple;
+    
+    font-size: 1.3em;
+    font-weight: 600;
+    border: solid 5px $color-brand-purple;
     padding: .5em .8em;
+
+    &:active,
+    &:focus {
+      background-color: $color-brand-purple;
+    }
+
+    &::-webkit-details-marker {
+      color: $color-brand-magenta;
+    }
+
   }
 
   ul  {
     padding-left: 1.2em;
+  }
+
+  ul,
+  p {
+    
+    &:last-child {
+      margin-bottom: 2em;
+    }
+
   }
 
   li {
@@ -101,11 +116,11 @@
 
 .homeSubscribe {
   
-  font-size: 1.4em;
   text-align: center;
 
   p {
     
+    font-size: 1.2em;
     margin-bottom: 1.5em;
 
     &:last-child {
@@ -120,10 +135,26 @@
 
   font-size: .8em;
 
+  input,
+  button {
+    width: 100%;
+    max-width: 17rem;
+  }
+
   input {
     font-size: 1.2em;
     text-align: center;
     padding: .8em;
   }
 
+}
+
+.blockHeader {
+  background-color: $color-brand-magenta;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 2em;
+  padding: .2em .5em;
+  text-transform: uppercase;
+  margin: .1em;
 }

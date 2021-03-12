@@ -8,6 +8,7 @@ import Section from 'components/Section';
 import Container from 'components/Container';
 import Button from 'components/Button';
 import FeatureList from 'components/FeatureList';
+import ShareAnchor from 'components/ShareAnchor';
 
 import styles from 'styles/App.module.scss';
 
@@ -97,12 +98,19 @@ export default function Home() {
 
       <Section className={styles.homeDetailsSection}>
         <Container>
-          <h2>
+          <h2 className={styles.blockHeader}>
             Full Chapter Breakdown
           </h2>
           
           <details className={styles.homeDetails}>
-            <summary>What tools will we use?</summary>
+            <summary>0:00:00 - Intro</summary>
+            <p>
+              Welcome! Ready to dive in? 🚀
+            </p>
+          </details>
+
+          <details className={styles.homeDetails}>
+            <summary>0:00:28 - What tools will we use?</summary>
             <ul>
               <li>Figma design tool</li>
               <li>Next.js React framework</li>
@@ -289,7 +297,7 @@ export default function Home() {
 
       <Section className={styles.homeSubscribe}>
         <Container>
-          <h2>
+          <h2 className={styles.blockHeader}>
             Susbcribe to My Newsletter
           </h2>
           <p>
@@ -307,6 +315,8 @@ export default function Home() {
           </form>
         </Container>
       </Section>
+
+      <ShareAnchor />
 
     </Layout>
   )
