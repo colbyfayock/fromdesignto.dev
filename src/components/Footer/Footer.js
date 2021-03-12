@@ -44,13 +44,13 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com/colbyfayock">
+                  <a href="https://github.com/colbyfayock">
                     <span className="sr-only">GitHub</span>
                     <FaGithub />
                   </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com/colbyfayock">
+                  <a href="https://youtube.com/colbyfayock">
                     <span className="sr-only">YouTube</span>
                     <FaYoutube className={styles.footerIconYoutube} />
                   </a>
