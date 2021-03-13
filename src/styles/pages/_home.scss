@@ -30,7 +30,7 @@
 
   font-size: .6em;
   margin-top: .1em;
-  
+
   strong {
     background-color: $color-brand-magenta;
   }
@@ -44,9 +44,9 @@
 .homeWatch {
 
   text-align: center;
-  
+
   a {
-    
+
     @extend .button;
     text-decoration: none;
     margin: .5em;
@@ -56,11 +56,11 @@
     }
 
   }
-  
+
 }
 
 .homeDetailsSection {
-  
+
   text-align: center;
 
   h2 {
@@ -78,7 +78,7 @@
   margin: 1em auto;
 
   summary {
-    
+
     font-size: 1.3em;
     font-weight: 600;
     border: solid 5px $color-brand-purple;
@@ -101,7 +101,9 @@
 
   ul,
   p {
-    
+
+    font-size: 1.2em;
+
     &:last-child {
       margin-bottom: 2em;
     }
@@ -114,12 +116,29 @@
 
 }
 
+.homeDetailsJump {
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  svg {
+    color: $color-brand-magenta;
+    margin-right: .5em;
+    transform: translateY(1px);
+  }
+
+}
+
 .homeSubscribe {
-  
+
   text-align: center;
 
   p {
-    
+
     font-size: 1.2em;
     margin-bottom: 1.5em;
 
@@ -157,4 +176,10 @@
   padding: .2em .5em;
   text-transform: uppercase;
   margin: .1em;
+}
+
+.homeFeatureNote {
+  max-width: 20em;
+  font-size: 2.2em;
+  margin: 2em auto 1.5em;
 }

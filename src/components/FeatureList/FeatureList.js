@@ -3,7 +3,7 @@ import styles from './FeatureList.module.scss';
 import Container from 'components/Container';
 import Section from 'components/Section';
 
-const FeatureList = ({ title = "Features", features = [], backgroundColor = "primary" }) => {
+const FeatureList = ({ children, title = "Features", features = [], backgroundColor = "primary" }) => {
 
   if ( !Array.isArray(features) ) {
     throw new Error(`Failed to render FeatureList: Invalid features type ${typeof features}`);
@@ -22,6 +22,7 @@ const FeatureList = ({ title = "Features", features = [], backgroundColor = "pri
             )
           }) }
         </ul>
+        { children }
       </Container>
     </Section>
   )

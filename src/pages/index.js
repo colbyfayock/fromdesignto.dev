@@ -26,7 +26,7 @@ export default function Home() {
       <Helmet>
         <html lang="en" />
         <title>{ siteName }</title>
-        
+
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="description" content={metaDescription} />
@@ -93,7 +93,11 @@ export default function Home() {
         '⚙️ Deploying a Next.js app with Netlify',
         '🔒 Authenticating users with Netlify Identity',
         '📝 Managing dynamic content with Airtable'
-      ]} backgroundColor="purple" />
+      ]} backgroundColor="purple">
+        <p className={styles.homeFeatureNote}>
+          Take your web app <strong>from design to development</strong> with this free course!
+        </p>
+      </FeatureList>
 
 
       <Section className={styles.homeDetailsSection}>
@@ -101,11 +105,16 @@ export default function Home() {
           <h2 className={styles.blockHeader}>
             Full Chapter Breakdown
           </h2>
-          
+
           <details className={styles.homeDetails}>
             <summary>0:00:00 - Intro</summary>
             <p>
               Welcome! Ready to dive in? 🚀
+            </p>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=0s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
             </p>
           </details>
 
@@ -121,7 +130,12 @@ export default function Home() {
               <li>Netlify app hosting and deployment</li>
               <li>Netlify Identity authentication</li>
               <li>Airtable (API) as a database</li>
-              </ul>
+            </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=28s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -130,6 +144,11 @@ export default function Home() {
               <li>Downloading the free project idea PDF from 50reactprojects.com</li>
               <li>Reviewing available project ideas</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=65s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -139,6 +158,11 @@ export default function Home() {
               <li>Adding text to a design</li>
               <li>Grouping content to easily update a layout</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=100s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -148,6 +172,11 @@ export default function Home() {
               <li>Reorganizing content structure</li>
               <li>Overview of a new Next.js app</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=630s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -157,6 +186,11 @@ export default function Home() {
               <li>Updating a Next.js app to use Sass</li>
               <li>Using Sass features like nesting and variables</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=943s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -169,6 +203,11 @@ export default function Home() {
               <li>Adding custom fonts with Google Fonts</li>
               <li>Creating and styling a custom form</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=1117s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -182,6 +221,11 @@ export default function Home() {
               <li>Using custom Sass CSS modules to style components</li>
               <li>Importing global application styles into Storybook stories</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=2297s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -193,6 +237,11 @@ export default function Home() {
               <li>Using CSS Flexbox for designing component layouts</li>
               <li>Using SVG Font Awesome icons with React Icons</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=3360s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -204,6 +253,11 @@ export default function Home() {
               <li>Configuring build settings for a Netlify project</li>
               <li>Installing the Next.js build plugin to Netlify</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=5812s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -220,6 +274,11 @@ export default function Home() {
               <li>Setting Secrets in a GitHub repository</li>
               <li>Using a Secret as an environment variable in GitHub Actions</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=6172s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -237,6 +296,11 @@ export default function Home() {
               <li>Refreshing app authentication state on login</li>
               <li>Cleaning up event handlers on unmount with useEffect</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=7128s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -258,6 +322,11 @@ export default function Home() {
               <li>Sorting an array of objects by a  date key</li>
               <li>Protecting serverless functions with Netlify Identity</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=8836s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -268,6 +337,11 @@ export default function Home() {
               <li>Deploying serverless function before using in app</li>
               <li>Testing our project on production</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=12203s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
@@ -285,11 +359,23 @@ export default function Home() {
               <li>Setting up environment variables to store sensitive data</li>
               <li>More things you can do</li>
             </ul>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=12543s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
           <details className={styles.homeDetails}>
             <summary>3:33:43 - Congrats, you made it! Outro</summary>
-            🥳🥳🥳🥳🥳
+            <p>
+              🥳🥳🥳🥳🥳
+            </p>
+            <p className={styles.homeDetailsJump}>
+              <a href="https://www.youtube.com/watch?v=QjZIeA952jE&t=12823s">
+                <FaYoutube /> Jump to this chapter!
+              </a>
+            </p>
           </details>
 
         </Container>
