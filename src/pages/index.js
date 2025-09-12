@@ -389,9 +389,21 @@ export default function Home() {
           <p>
             Get free weekly tutorials straight to your inbox!
           </p>
-          <form className={styles.form} action="https://app.convertkit.com/forms/2111125/subscriptions" method="post">
+          <form className={styles.form} method="POST" action="https://mailtik.spacejelly.dev/api/forms/newsletter">
+            <input type="text" autoComplete="off" tabIndex={-1} style={{
+                  position: "absolute",
+                  left: "-9999px",
+                  width: "0",
+                  height: "0",
+                  border: "0",
+                  padding: "0",
+                  margin: "0",
+                  overflow: "hidden"
+                }} name="phone" />
+            <input type="hidden" name="redirect" value="https://fromdesignto.dev/" />
+            <input type="hidden" name="tags" value="location:fromdesignto.dev" />
             <p>
-              <input name="email_address" aria-label="Your email address" placeholder="Your email address" required type="email" />
+              <input name="email" aria-label="Your email address" placeholder="Your email address" required type="email" />
             </p>
             <p>
               <Button>

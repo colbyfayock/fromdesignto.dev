@@ -1,9 +1,9 @@
-@import "styles/settings/__settings";
-@import "styles/util/__util";
+@use "../../styles/settings/colors";
+@use "../../styles/util/mixins";
 
 .shareAnchor {
   padding: 2rem 0;
-  background-color: $color-brand-purple;
+  background-color: colors.$color-brand-purple;
   margin-bottom: 0;
 }
 
@@ -14,7 +14,7 @@
   align-items: center;
   flex-direction: column;
 
-  @include gtMedium() {
+  @include mixins.gtMedium() {
     flex-direction: row;
   }
 
@@ -24,7 +24,7 @@
     text-align: center;
     margin: 0;
 
-    @include gtMedium() {
+    @include mixins.gtMedium() {
       text-align: left;
     }
 
@@ -36,7 +36,7 @@
 
   margin: 1em 0 0;
 
-  @include gtMedium() {
+  @include mixins.gtMedium() {
     margin: 0 0 0 2em;
   }
 

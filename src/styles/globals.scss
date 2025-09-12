@@ -1,4 +1,5 @@
-@import "styles/settings/__settings";
+@use "settings/colors";
+@use "settings/typography";
 
 * {
   box-sizing: border-box;
@@ -8,7 +9,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: $font-family-default;
+  font-family: typography.$font-family-default;
   color: white;
   background-color: black;
 }
@@ -32,7 +33,7 @@ a {
   position: relative;
   overflow: hidden;
   padding-top: percentage( 315 / 560 );
-  border: solid 5px $color-brand-magenta;
+  border: solid 5px colors.$color-brand-magenta;
 
   iframe {
     position: absolute;
