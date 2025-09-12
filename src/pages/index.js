@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaYoutube, FaBell } from 'react-icons/fa';
 
@@ -15,8 +16,57 @@ import styles from 'styles/App.module.scss';
 export default function Home() {
   const { metadata } = useSite();
   const { siteName, homepage } = metadata;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const metaDescription = 'Learn how to go from design to development using the best tools on the web!';
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+    const message = urlParams.get('message');
+    
+    if (status === 'success' && message) {
+      setSuccessMessage(decodeURIComponent(message));
+    }
+    
+    // Clean up URL parameters
+    if (status) {
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, []);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage(null); // Clear any existing error messages
+    
+    const formData = new FormData(e.target);
+    const formAction = e.target.action;
+    
+    try {
+      const response = await fetch(formAction, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        if (result.redirectUrl) {
+          window.location.href = result.redirectUrl;
+        }
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setErrorMessage('Something went wrong, please try again');
+      setIsSubmitting(false);
+    }
+  };
 
   const ogImage = `${homepage}/from-design-to-development-crash-course.jpg`;
 
@@ -53,6 +103,12 @@ export default function Home() {
 
       <Section>
         <Container>
+          {successMessage && (
+            <div className={`${styles.statusMessage} ${styles.success}`}>
+              {successMessage}
+            </div>
+          )}
+          
           <h1 className={styles.homeTitle}>
             <span>
               From <strong>Design</strong> to
@@ -389,7 +445,12 @@ export default function Home() {
           <p>
             Get free weekly tutorials straight to your inbox!
           </p>
-          <form className={styles.form} method="POST" action="https://mailtik.spacejelly.dev/api/forms/newsletter">
+          {errorMessage && (
+            <div className={`${styles.formError}`}>
+              {errorMessage}
+            </div>
+          )}
+          <form className={styles.form} method="POST" action="https://mailtik.spacejelly.dev/api/forms/newsletter" onSubmit={handleFormSubmit}>
             <input type="text" autoComplete="off" tabIndex={-1} style={{
                   position: "absolute",
                   left: "-9999px",
@@ -403,10 +464,10 @@ export default function Home() {
             <input type="hidden" name="redirect" value="https://fromdesignto.dev/" />
             <input type="hidden" name="tags" value="location:fromdesignto.dev" />
             <p>
-              <input name="email" aria-label="Your email address" placeholder="Your email address" required type="email" />
+              <input name="email" aria-label="Your email address" placeholder="Your email address" required type="email" disabled={isSubmitting} />
             </p>
             <p>
-              <Button>
+              <Button type="submit" loading={isSubmitting}>
                 Get Free Tutorials
               </Button>
             </p>
