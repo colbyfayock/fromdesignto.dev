@@ -1,15 +1,13 @@
-const withPlugins = require('next-compose-plugins');
-const images = require('next-images');
-
 const siteConfig = {
   siteName: 'From Design to Development'
 };
 
-module.exports = withPlugins([
-  images
-], {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   env: {
     ...siteConfig,
     NEXT_PUBLIC_siteName: siteConfig.siteName
   }
-});
+};
+
+module.exports = nextConfig;

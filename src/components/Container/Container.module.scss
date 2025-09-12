@@ -1,8 +1,8 @@
-@import "styles/settings/__settings";
+@use "../../styles/settings/display";
 
 .container {
   
-  max-width: $page-max-width;
+  max-width: display.$page-max-width;
   padding: 0 2rem;
   margin: 0 auto;
 
