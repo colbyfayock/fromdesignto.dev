@@ -2,7 +2,7 @@
 
 Static Astro site for the From Design to Development Crash Course. Styling uses browser-native CSS; the build does not depend on Sass, React, or Next.js.
 
-Analytics use the site-specific Plausible snippet for `fromdesignto.dev`.
+Analytics use the site-specific Plausible snippet for `fromdesignto.dev`, proxied through Netlify at `/p9x4c/` to reduce blocking of direct third-party requests.
 
 ## Development
 
