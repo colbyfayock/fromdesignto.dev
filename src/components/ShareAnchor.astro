@@ -1,0 +1,32 @@
+---
+import site from '../data/site.js';
+import Container from './Container.astro';
+import Section from './Section.astro';
+
+const message = [
+  "\u{1F9D1}\u200D\u{1F680} I'm taking the From Design to Development Crash Course",
+  '',
+  '\u{1F646}\u200D\u2640\uFE0F This 3.5 hour course from @colbyfayock walks through awesome web tools from Figma and Storybook to Next.js on Netlify',
+  '',
+  '\u{1F4AA} Ready to get started?',
+  '',
+  '\u{1F680} Jump in below!',
+  '',
+  site.homepage,
+].join('\n');
+
+const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
+const { class: className = '', backgroundColor = 'blue' } = Astro.props;
+const sectionClasses = ['shareAnchor', className].filter(Boolean).join(' ');
+---
+
+<Section class={sectionClasses} backgroundColor={backgroundColor}>
+  <Container class="shareAnchorContainer">
+    <slot>
+      <h3>Love From Design to Dev?</h3>
+    </slot>
+    <p class="shareAnchorActions">
+      <a class="button" href={shareUrl} target="_blank" rel="noopener noreferrer">Share on Twitter</a>
+    </p>
+  </Container>
+</Section>
