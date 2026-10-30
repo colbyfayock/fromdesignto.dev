@@ -1,0 +1,8 @@
+---
+const { class: className = '', backgroundColor } = Astro.props;
+const classes = ['section', className].filter(Boolean).join(' ');
+---
+
+<section class={classes} data-background-color={backgroundColor}>
+  <slot />
+</section>

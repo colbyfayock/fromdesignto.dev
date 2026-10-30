@@ -1,0 +1,53 @@
+---
+import site from '../data/site.js';
+import Container from './Container.astro';
+import Icon from './Icon.astro';
+import Section from './Section.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <Section class="footerSection">
+    <Container class="footerContentContainer">
+      <div>
+        <h2>Have any questions?</h2>
+        <p>Contact me at <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></p>
+      </div>
+      <div>
+        <h2>Moar awesome!</h2>
+        <ul>
+          <li><a href="https://50reactprojects.com">50reactprojects.com</a></li>
+          <li><a href="https://journeyto.dev">journeyto.dev</a></li>
+          <li><a href="https://jamstackhandbook.com">jamstackhandbook.com</a></li>
+          <li><a href="https://colbyfayock.com">colbyfayock.com</a></li>
+        </ul>
+      </div>
+      <div class="footerLegal">
+        <div>
+          <p>&copy; {currentYear}, <a href={site.authorUrl}>{site.authorName}</a></p>
+          <ul>
+            <li>
+              <a href="https://twitter.com/colbyfayock" aria-label="Twitter">
+                <Icon name="twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/colbyfayock" aria-label="GitHub">
+                <Icon name="github" />
+              </a>
+            </li>
+            <li>
+              <a href="https://youtube.com/colbyfayock" aria-label="YouTube">
+                <Icon name="youtubeMuted" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a class="footerCosmo" href="https://spacejelly.dev" aria-label="Space Jelly">
+          <img src="/cosmo.svg" alt="" aria-hidden="true" decoding="async" />
+        </a>
+      </div>
+    </Container>
+  </Section>
+</footer>

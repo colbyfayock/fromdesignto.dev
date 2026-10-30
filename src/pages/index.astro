@@ -1,0 +1,203 @@
+---
+import Button from '../components/Button.astro';
+import Container from '../components/Container.astro';
+import FeatureList from '../components/FeatureList.astro';
+import Icon from '../components/Icon.astro';
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import ShareAnchor from '../components/ShareAnchor.astro';
+import site from '../data/site.js';
+import { chapters } from '../data/chapters.js';
+
+const features = [
+  '\u{1F3A8} Designing layouts with Figma',
+  '\u{1F4BB} Creating React apps with Next.js',
+  '\u{1F485} Styling the web with Sass',
+  '\u{1F4D3} Creating component systems with Storybook',
+  '\u{1F9D0} Automating Visual Testing with Applitools Eyes',
+  '\u{1F916} Automating code tasks with GitHub Actions',
+  '\u2699\uFE0F Deploying a Next.js app with Netlify',
+  '\u{1F512} Authenticating users with Netlify Identity',
+  '\u{1F4DD} Managing dynamic content with Airtable',
+];
+
+const metaDescription = 'Learn how to go from design to development using the best tools on the web!';
+const ogImage = `${site.homepage}/from-design-to-development-crash-course.jpg`;
+---
+
+<Layout
+  title={`${site.siteName} - ${site.siteName}`}
+  description={metaDescription}
+  ogImage={ogImage}
+  withHomeIcons={true}
+  displayNav={false}
+>
+  <Section>
+    <Container>
+      <div class="statusMessage success" data-form-success hidden aria-live="polite"></div>
+
+      <h1 class="homeTitle">
+        <span>From <strong>Design</strong> to</span>
+        <span><strong>Development</strong></span>
+        <span class="homeTitleSubline"><strong>Crash Course</strong></span>
+      </h1>
+
+      <figure class="homeVideo">
+        <div class="video-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/QjZIeA952jE"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="From Design to Development Crash Course"
+          ></iframe>
+        </div>
+      </figure>
+
+      <p class="homeWatch">
+        <a href="https://www.youtube.com/watch?v=QjZIeA952jE">
+          <Icon name="youtube" /> Watch on YouTube
+        </a>
+        <a href="https://www.youtube.com/colbyfayock?sub_confirmation=1">
+          <Icon name="bell" /> Subscribe on YouTube
+        </a>
+      </p>
+    </Container>
+  </Section>
+
+  <FeatureList title="What You'll Learn" features={features} backgroundColor="purple">
+    <p class="homeFeatureNote">
+      Take your web app <strong>from design to development</strong> with this free course!
+    </p>
+  </FeatureList>
+
+  <Section class="homeDetailsSection">
+    <Container>
+      <h2 class="blockHeader">Full Chapter Breakdown</h2>
+
+      {chapters.map((chapter) => (
+        <details class="homeDetails">
+          <summary>{chapter.summary}</summary>
+          {chapter.intro && <p>{chapter.intro}</p>}
+          {chapter.items && (
+            <ul>
+              {chapter.items.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+          <p class="homeDetailsJump">
+            <a href={`https://www.youtube.com/watch?v=QjZIeA952jE&t=${chapter.seconds}s`}>
+              <Icon name="youtubeMagenta" /> Jump to this chapter!
+            </a>
+          </p>
+        </details>
+      ))}
+    </Container>
+  </Section>
+
+  <Section class="homeSubscribe">
+    <Container>
+      <h2 class="blockHeader">Susbcribe to My Newsletter</h2>
+      <p>Get free weekly tutorials straight to your inbox!</p>
+
+      <div class="formError" data-form-error role="alert" hidden></div>
+
+      <form
+        class="form"
+        method="POST"
+        action="https://mailtik.spacejelly.dev/api/forms/newsletter"
+        data-newsletter-form
+      >
+        <input
+          type="text"
+          name="phone"
+          autocomplete="off"
+          tabindex="-1"
+          aria-hidden="true"
+          style="position: absolute; left: -9999px; width: 0; height: 0; border: 0; padding: 0; margin: 0; overflow: hidden;"
+        />
+        <input type="hidden" name="redirect" value="https://fromdesignto.dev/" />
+        <input type="hidden" name="tags" value="location:fromdesignto.dev" />
+        <p>
+          <input
+            name="email"
+            aria-label="Your email address"
+            placeholder="Your email address"
+            required
+            type="email"
+            data-email-input
+          />
+        </p>
+        <p>
+          <Button type="submit">
+            <span class="spinner" data-submit-spinner hidden aria-hidden="true"></span>
+            <span data-submit-label>Get Free Tutorials</span>
+          </Button>
+        </p>
+      </form>
+    </Container>
+  </Section>
+
+  <ShareAnchor />
+</Layout>
+
+<script>
+  const form = document.querySelector('[data-newsletter-form]');
+  const successMessage = document.querySelector('[data-form-success]');
+  const errorMessage = document.querySelector('[data-form-error]');
+  const statusParams = new URLSearchParams(window.location.search);
+  const status = statusParams.get('status');
+  const message = statusParams.get('message');
+
+  if (status === 'success' && message && successMessage) {
+    successMessage.textContent = decodeURIComponent(message);
+    successMessage.hidden = false;
+  }
+
+  if (status) {
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const submitLabel = form.querySelector('[data-submit-label]');
+    const spinner = form.querySelector('[data-submit-spinner]');
+    const formData = new FormData(form);
+
+    if (!submitButton || !submitLabel || !spinner || !errorMessage) return;
+
+    submitButton.disabled = true;
+    submitButton.dataset.loading = 'true';
+    submitLabel.hidden = true;
+    spinner.hidden = false;
+    errorMessage.hidden = true;
+    errorMessage.textContent = '';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error('Form submission failed');
+      }
+
+      if (result.redirectUrl) {
+        window.location.href = result.redirectUrl;
+      }
+    } catch {
+      errorMessage.textContent = 'Something went wrong, please try again';
+      errorMessage.hidden = false;
+      submitButton.disabled = false;
+      delete submitButton.dataset.loading;
+      submitLabel.hidden = false;
+      spinner.hidden = true;
+    }
+  });
+</script>

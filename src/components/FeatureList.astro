@@ -1,0 +1,16 @@
+---
+import Container from './Container.astro';
+import Section from './Section.astro';
+
+const { title = 'Features', features = [], backgroundColor = 'primary' } = Astro.props;
+---
+
+<Section class="featureList" backgroundColor={backgroundColor}>
+  <Container>
+    <h2>{title}</h2>
+    <ul>
+      {features.map((feature) => <li>{feature}</li>)}
+    </ul>
+    <slot />
+  </Container>
+</Section>

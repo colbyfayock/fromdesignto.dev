@@ -1,0 +1,34 @@
+---
+const icons = {
+  youtube: {
+    src: '/icons/youtube-white.svg',
+    label: 'YouTube',
+  },
+  youtubeMagenta: {
+    src: '/icons/youtube-magenta.svg',
+    label: 'YouTube',
+  },
+  youtubeMuted: {
+    src: '/icons/youtube-muted.svg',
+    label: 'YouTube',
+  },
+  bell: {
+    src: '/icons/bell-white.svg',
+    label: 'Notifications',
+  },
+  twitter: {
+    src: '/icons/twitter-muted.svg',
+    label: 'Twitter',
+  },
+  github: {
+    src: '/icons/github-muted.svg',
+    label: 'GitHub',
+  },
+};
+
+const { name, class: className = '' } = Astro.props;
+const icon = icons[name];
+const classes = ['icon', className].filter(Boolean).join(' ');
+---
+
+{icon && <img class={classes} src={icon.src} alt="" aria-hidden="true" decoding="async" />}

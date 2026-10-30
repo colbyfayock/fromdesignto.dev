@@ -1,0 +1,8 @@
+---
+const { type = 'button', class: className = '', disabled = false, loading = false } = Astro.props;
+const classes = ['button', className].filter(Boolean).join(' ');
+---
+
+<button class={classes} type={type} disabled={disabled || loading} data-loading={loading ? 'true' : undefined}>
+  <slot />
+</button>
